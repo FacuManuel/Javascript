@@ -22,18 +22,6 @@ header {
 }
 
 
-.user-button,
-.carrito-button,
-button.eliminar-carrito,
-button.finalizar-compra {
-    background-color: #555;
-    color: #f79b9b;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 
 div.container {
     max-width: 100%;
@@ -57,7 +45,7 @@ div.container {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
-    background-color: #977474;
+    background-image: url(./images/warning.jpg);
     border-radius: 5%;
 }
 
@@ -65,6 +53,7 @@ div.container {
 img {
     max-width: 150px;
     border-radius: 20%;
+    border: 2px solid #fffffffc;
 }
 
 
@@ -82,4 +71,44 @@ p {
     background-color: #010101;
     color: white;
     color: aliceblue;
+}
+
+.miBoton {
+    color: #ddd;
+    background-color: #353535;
+    border-radius: 5%;
+}
+
+.eliminar-producto {
+    color: #ddd;
+    background-color: #353535;
+    border-radius: 5%;
+
+}
+
+.precio {
+    color: rgb(252, 247, 249);
+    font-size: 25px;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+h2.titulouno {
+    font-size: 50px;
+    color: #f6bdbd;
+    text-shadow: 2px 2px 2px black;
+}
+
+p {
+    color: #ddd;
+    text-shadow: 2px 2px 2px #020202;
+    background-color: #3535353b;
+}
+
+.logo {
+    border: none;
+}
+
+.tituloproducto {
+    color: #c17023;
+    text-shadow: 2px 1px 10px  rgb(0, 0, 0);
 }

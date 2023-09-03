@@ -1,183 +1,202 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda en Línea</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda en Línea</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-full-width">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#">Tineda en Linea Nike</a>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" id="perfilBtn">Perfil</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" id="infoBtn">Info</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#carritoModal">Carrito<span id="total-carrito"></span></a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
-                  <button class="btn btn-success" type="button" onclick="buscarProductos()">Search</button>
-                </form>
-              </div>
-            </div>
-          </nav>
-    </header>
-    <tbody id="carrito-body">
-      <!-- Aquí se generarán dinámicamente los productos del carrito -->
-    </tbody>
-
-
-
-
-
-    <div class="container">
-        <h2>Productos Destacados</h2>
-        <div class="product-grid">
-            <!-- Tarjeta de producto 1 -->
-            <div class="product-card">
-                <img src="./images/1.jpg">
-                <h3>AR Black</h3>
-                <p>zapatillas nike ar negras, estilo llama, encantadoras, compralas ya</p>
-                <p>Precio: $10.99</p>
-                <button class="miBoton">Agregar al carrito</button>
-                <button class="eliminar-producto">Eliminar del carrito</button>
-            </div>
-
-            <!-- Tarjeta de producto 2 -->
-            <div class="product-card">
-                <img src="./images/2.jpg">
-                <h3>OrStreet</h3>
-                <p>nikes estilo callejero color naranja, grafitti, estilo unico</p>
-                <p>Precio: $17.99</p>
-                <button class="miBoton">Agregar al carrito</button>
-                <button class="eliminar-producto">Eliminar del carrito</button>
-            </div>
-
-            <!-- Tarjeta de producto 3 -->
-            <div class="product-card">
-                <img src="./images/3.jpg">
-                <h3>Nike Prime
-                </h3>
-                <p>nike edicion 2023, blancas negras y simbolo llamativo, que esperas</p>
-                <p>Precio: $15.00</p>
-                <button class="miBoton">Agregar al carrito</button>
-                <button class="eliminar-producto">Eliminar del carrito</button>
-            </div>
-
-            <!-- Tarjeta de producto 4 -->
-            <div class="product-card">
-                <img src="./images/4.jpg">
-                <h3>
-                    AllBlack
-                </h3>
-                <p>zapatillas nike completamente dark, detalles en naranja</p>
-                <p>Precio: $10.00</p>
-                <button class="miBoton">Agregar al carrito</button>
-                <button class="eliminar-producto">Eliminar del carrito</button>
-            </div>
-
-            <!-- Tarjeta de producto 5 -->
-            <div class="product-card">
-                <img src="./images/5.jpg">
-                <h3>nikeOG</h3>
-                <p>zapatillas nike og, edicion limitada, lengua alta</p>
-                <p>Precio: $12.99</p>
-                <button class="miBoton">Agregar al carrito</button>
-                <button class="eliminar-producto">Eliminar del carrito</button>
-            </div>
-
-            <!-- Tarjeta de producto 6 -->
-            <div class="product-card">
-                <img src="./images/6.jpg">
-                <h3>AirClassics</h3>
-                <p>Zapatillas nike air clasic, las de siempre </p>
-                <p>Precio: $11.99</p>
-                <button class="miBoton">Agregar al carrito</button>
-                <button class="eliminar-producto">Eliminar del carrito</button>
-            </div>
-            <!-- Tarjeta de producto 7 -->
-            <div class="product-card">
-                <img src="./images/1.jpg">
-                <h3>AR Black</h3>
-                <p>zapatillas nike ar negras, estilo llama, encantadoras, compralas ya</p>
-                <p>Precio: $12.50</p>
-                <button class="miBoton">Agregar al carrito</button>
-                <button class="eliminar-producto">Eliminar del carrito</button>
-            </div>
-            <!-- Tarjeta de producto 8 -->
-            <div class="product-card">
-                <img src="./images/3.jpg">
-                <h3>OrStreet</h3>
-                <p>nikes estilo callejero color naranja, grafitti, estilo unico</p>
-                <p>Precio: $15.99</p>
-                <button class="miBoton">Agregar al carrito</button>
-                <button class="eliminar-producto">Eliminar del carrito</button>
-            </div>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-full-width" data-bs-theme="dark">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img src="./images/logo.png" alt="Logo de la Tienda" class="logo">
+          </a>
         </div>
+        <div class="navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" id="perfilBtn">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="infoBtn">Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="carritoBtn">Carrito<span id="total-carrito"></span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-right">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-input">
+            <button class="btn btn-success" type="button" onclick="buscarProductos()">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <tbody id="carrito-body">
+    <!-- productos del carrito -->
+  </tbody>
+
+
+
+
+
+  <div class="container">
+    <h2 class="titulouno">Productos Destacados</h2>
+    <div class="product-grid">
+      <!-- Tarjeta de producto 1 -->
+      <div class="product-card">
+        <img src="./images/1.jpg">
+        <h3 class="tituloproducto">AR Black</h3>
+        <p class="descripcion">zapatillas nike ar negras, estilo llama, encantadoras, compralas ya</p>
+        <p class="precio">Precio: $10.99</p>
+        <button class="miBoton">Agregar al carrito</button>
+        <button class="eliminar-producto">Eliminar del carrito</button>
+      </div>
+
+      <!-- Tarjeta de producto 2 -->
+      <div class="product-card">
+        <img src="./images/2.jpg">
+        <h3 class="tituloproducto">OrStreet</h3>
+        <p>nikes estilo callejero color naranja, grafitti, estilo unico</p>
+        <p class="precio">Precio: $17.99</p>
+        <button class="miBoton">Agregar al carrito</button>
+        <button class="eliminar-producto">Eliminar del carrito</button>
+      </div>
+
+      <!-- Tarjeta de producto 3 -->
+      <div class="product-card">
+        <img src="./images/3.jpg">
+        <h3 class="tituloproducto">Nike Prime
+        </h3>
+        <p>nike edicion 2023, blancas negras y simbolo llamativo, que esperas</p>
+        <p class="precio">Precio: $15.00</p>
+        <button class="miBoton">Agregar al carrito</button>
+        <button class="eliminar-producto">Eliminar del carrito</button>
+      </div>
+
+      <!-- Tarjeta de producto 4 -->
+      <div class="product-card">
+        <img src="./images/4.jpg">
+        <h3 class="tituloproducto">AllBlack</h3>
+        <p>zapatillas nike completamente dark, detalles en naranja</p>
+        <p class="precio">Precio: $10.00</p>
+        <button class="miBoton">Agregar al carrito</button>
+        <button class="eliminar-producto">Eliminar del carrito</button>
+      </div>
+
+      <!-- Tarjeta de producto 5 -->
+      <div class="product-card">
+        <img src="./images/5.jpg">
+        <h3 class="tituloproducto">nikeOG</h3>
+        <p>zapatillas nike og, edicion limitada, lengua alta</p>
+        <p class="precio">Precio: $12.99</p>
+        <button class="miBoton">Agregar al carrito</button>
+        <button class="eliminar-producto">Eliminar del carrito</button>
+      </div>
+
+      <!-- Tarjeta de producto 6 -->
+      <div class="product-card">
+        <img src="./images/6.jpg">
+        <h3 class="tituloproducto">AirClassics</h3>
+        <p>Zapatillas nike air clasic, las de siempre </p>
+        <p class="precio">Precio: $11.99</p>
+        <button class="miBoton">Agregar al carrito</button>
+        <button class="eliminar-producto">Eliminar del carrito</button>
+      </div>
+      <!-- Tarjeta de producto 7 -->
+      <div class="product-card">
+        <img src="./images/1.jpg">
+        <h3 class="tituloproducto">AR Black</h3>
+        <p>zapatillas nike ar negras, estilo llama, encantadoras, compralas ya</p>
+        <p class="precio">Precio: $12.50</p>
+        <button class="miBoton">Agregar al carrito</button>
+        <button class="eliminar-producto">Eliminar del carrito</button>
+      </div>
+      <!-- Tarjeta de producto 8 -->
+      <div class="product-card">
+        <img src="./images/3.jpg">
+        <h3 class="tituloproducto">OrStreet</h3>
+        <p>nikes estilo callejero color naranja, grafitti, estilo unico</p>
+        <p class="precio">Precio: $15.99</p>
+        <button class="miBoton">Agregar al carrito</button>
+        <button class="eliminar-producto">Eliminar del carrito</button>
+      </div>
     </div>
+  </div>
 
-    <footer>
-        <p>&copy; 2023 Tienda en línea. Todos los derechos reservados.</p>
-    </footer>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  
-    <script src="index.js"></script>
-    <div id="resultado-busqueda" class="resultado-busqueda"></div>
-
-
-
-    <!--modal-->
-    <div id="carritoModal" class="modal fade">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Carrito de Compras</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Producto</th>
-                  <th>Precio</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody id="carrito-body">
-                <!-- Aquí se generarán dinámicamente los productos del carrito -->
-              </tbody>
-            </table>
-            <p>Total: $<span id="carrito-total">0.00</span></p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <button type="button" class="btn btn-primary" id="finalizar-compra">Finalizar Compra</button>
-          </div>
+  <footer class="bg-dark text-light py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Contacto</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Dirección: 123 Calle Principal, Ciudad</p>
+          <p><i class="fas fa-phone"></i> Teléfono: (123) 456-7890</p>
+          <p><i class="fas fa-envelope"></i> Correo Electrónico: info@tiendaenlinea.com</p>
+        </div>
+        <div class="col-md-6">
+          <h4>Síguenos en Redes Sociales</h4>
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+          </ul>
         </div>
       </div>
     </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="carrito.js"></script>
+  <script src="index.js"></script>
+  <div id="resultado-busqueda" class="resultado-busqueda"></div>
+
+
+
+  <!--modal-->
+  <div id="carritoModal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Carrito de Compras</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="carrito-body">
+              <!-- Aquí se generarán dinámicamente los productos del carrito -->
+            </tbody>
+          </table>
+          <p>Total: $<span id="carrito-total">0.00</span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="finalizar-compra">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
+
 </html>
