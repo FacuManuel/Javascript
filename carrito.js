@@ -107,7 +107,16 @@ document.addEventListener('DOMContentLoaded', function () {
       title: 'Resultados de Búsqueda',
       html: contenedorResultadosDeBúsqueda.innerHTML,
       icon: 'success',
-      confirmButtonText: 'Cerrar'
+      confirmButtonText: 'Cerrar',customClass: {
+
+        popup: 'custom-swal-popup', 
+      },
+      background: ` url('images/negro.jpg')`, 
+      backdrop: `
+        rgba(0,0,0)
+        url('images/negro.jpg')
+        bottom
+        no-repeat`,
     });
   }
 
@@ -127,7 +136,17 @@ function mostrarCarrito() {
       title: 'Carrito de Compras',
       text: 'El carrito está vacío.',
       icon: 'info',
-      confirmButtonText: 'Cerrar'
+      confirmButtonText: 'Cerrar',
+      customClass: {
+
+        popup: 'custom-swal-popup', 
+      },
+      background: ` url('images/negro.jpg')`, 
+      backdrop: `
+        rgba(0,0,0)
+        url('images/warning.jpg')
+        bottom
+        no-repeat`,
 
     });
     return;
@@ -150,7 +169,7 @@ function mostrarCarrito() {
 
 
   function vaciarCarrito() {
-    carrito.length = 0; // Esto vacía el arreglo carrito
+    carrito.length = 0;
    
   }
   // Muestra la ventana emergente con el contenido del carrito
@@ -160,16 +179,25 @@ function mostrarCarrito() {
     icon: 'success',
     confirmButtonText: 'Cerrar',
     denyButtonText: 'pagar',
-    showDenyButton: true,
+    showDenyButton: true,customClass: {
+
+      popup: 'custom-swal-popup', 
+    },
+    background: ` url('images/negro.jpg')`, 
+    backdrop: `
+      rgba(0,0,0)
+      url('images/warning.jpg')
+      bottom
+      no-repeat`,
   }).then((result) => {
     if (result.isConfirmed) {
     } else if (result.isDenied) {
-      Swal.fire('Gracias por tu compra', '', 'success'), vaciarCarrito();
+      Swal.fire('Gracias por tu compra', '', 'success',), vaciarCarrito();
     }
   })
 }
 
-////////////////////////////////////////////// correccion de errores sabado 9, 9 ,2023 /////////////////////////////////////
+
 
 
 
@@ -194,7 +222,17 @@ function eliminarDelCarrito(producto) {
     title: 'Producto Eliminado',
     text: `El producto "${producto.nombre}" se ha eliminado del carrito.`,
     icon: 'success',
-    confirmButtonText: 'Cerrar'
+    confirmButtonText: 'Cerrar',
+    customClass: {
+
+      popup: 'custom-swal-popup', 
+    },
+    background: ` url('images/negro.jpg')`, 
+    backdrop: `
+      rgba(0,0,0)
+      url('images/warning.jpg')
+      bottom
+      no-repeat`,
   });
   //console.log(`producto eliminado`);
 }

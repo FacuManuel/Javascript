@@ -1,12 +1,35 @@
+// Función para cargar los usuarios registrados desde localStorage usando Promesas
+function cargarUsuariosRegistrados() {
+  return new Promise((resolve, reject) => {
+    const usuariosRegistradosJSON = localStorage.getItem('usuariosRegistrados');
+    if (usuariosRegistradosJSON) {
+      resolve(JSON.parse(usuariosRegistradosJSON));
+    } else {
+      reject(new Error('No se encontraron usuarios registrados en localStorage.'));
+    }
+  });
+}
+
 // Función para mostrar un saludo inicial.
 function mostrarSaludo() {
   Swal.fire({
     title: 'Nike Friends',
     text: '¡Bienvenido a Tienda en Línea!',
     imageUrl: './images/java.jpg',
-    imageWidth: 400,
-    imageHeight: 400,
+    imageWidth: 300,
+    imageHeight: 300,
     imageAlt: 'Imagen de Nike',
+    customClass: {
+
+      popup: 'custom-swal-popup', 
+    },
+    background: ` url('images/blanco.png')`, 
+    backdrop: `
+      rgba(0,0,0)
+      url('images/warning.jpg')
+      top
+      no-repeat
+    `,
   });
 }
 
@@ -25,8 +48,6 @@ function obtenerFechaHoraActual() {
   const fechaHoraFormateada = `${nombreDia}, ${dia}/${mes}/${año} ${hora}:${minutos}:${segundos}`;
   return fechaHoraFormateada;
 }
-
-
 
 // Carga el arreglo de usuarios registrados
 let usuariosRegistrados = [
@@ -51,6 +72,7 @@ if (usuariosRegistradosJSON) {
   usuariosRegistrados = JSON.parse(usuariosRegistradosJSON);
 }
 
+
 // Función para iniciar sesión
 function iniciarSesion(username, contraseña) {
   const usuarioEncontrado = usuariosRegistrados.find(user => user.usuario === username);
@@ -61,6 +83,16 @@ function iniciarSesion(username, contraseña) {
       icon: 'success',
       title: 'Inicio de Sesión Exitoso',
       text: '¡Bienvenido, ' + username + '!',
+      customClass: {
+
+        popup: 'custom-swal-popup', 
+      },
+      background: ` url('images/negro.jpg')`, 
+      backdrop: `
+        rgba(0,0,0)
+        url('images/warning.jpg')
+        bottom
+        no-repeat`,
     });
     const perfilBtn = document.getElementById('perfilBtn');
     perfilBtn.textContent = 'Cerrar Sesión';
@@ -91,6 +123,18 @@ function mostrarLoginOLogoutPopup() {
       showCancelButton: true,
       confirmButtonText: 'Sí, Cerrar Sesión',
       cancelButtonText: 'Cancelar',
+      customClass: {
+
+        popup: 'custom-swal-popup', 
+      },
+      background: ` url('images/negro.jpg')`, 
+      backdrop: `
+        rgba(0,0,0)
+        url('images/warning.jpg')
+        bottom
+        no-repeat
+        
+      `,
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.removeItem('usuarioActual');
@@ -98,6 +142,16 @@ function mostrarLoginOLogoutPopup() {
           icon: 'success',
           title: 'Sesión Cerrada',
           text: 'Tu sesión ha sido cerrada correctamente.',
+          customClass: {
+
+            popup: 'custom-swal-popup', 
+          },
+          background: ` url('images/negro.jpg')`, 
+          backdrop: `
+            rgba(0,0,0)
+            url('images/warning.jpg')
+            bottom
+            no-repeat`,
         });
         cerrarSesionYRecargar(); // Función para cerrar sesión y recargar la página
       }
@@ -113,6 +167,16 @@ function mostrarLoginOLogoutPopup() {
       showCloseButton: true,
       confirmButtonText: 'Iniciar Sesión',
       cancelButtonText: 'Registrarse',
+      customClass: {
+
+        popup: 'custom-swal-popup', 
+      },
+      background: ` url('images/negro.jpg')`, 
+      backdrop: `
+        rgba(0,0,0)
+        url('images/warning.jpg')
+        bottom
+        no-repeat`,
     }).then((result) => {
       if (result.isConfirmed) {
         const username = document.getElementById('usuario').value;
@@ -133,6 +197,16 @@ function mostrarLoginOLogoutPopup() {
           showCancelButton: true,
           confirmButtonText: 'Registrar',
           cancelButtonText: 'Cancelar',
+          customClass: {
+
+            popup: 'custom-swal-popup', 
+          },
+          background: ` url('images/negro.jpg')`, 
+          backdrop: `
+            rgba(0,0,0)
+            url('images/warning.jpg')
+            bottom
+            no-repeat`,
         }).then((result) => {
           if (result.isConfirmed) {
             const nuevoUsuario = document.getElementById('nuevoUsuario').value;
@@ -155,6 +229,16 @@ function mostrarLoginOLogoutPopup() {
               icon: 'success',
               title: 'Registro Exitoso',
               text: 'Usuario registrado con éxito. Ahora puedes iniciar sesión.',
+              customClass: {
+
+                popup: 'custom-swal-popup', 
+              },
+              background: ` url('images/negro.jpg')`, 
+              backdrop: `
+                rgba(0,0,0)
+                url('images/warning.jpg')
+                bottom
+                no-repeat`,
             });
           }
         });
@@ -193,9 +277,24 @@ function cerrarSesionYRecargar() {
 // Botón de información
 document.getElementById('infoBtn').addEventListener('click', function () {
   Swal.fire({
-    title: '3ra Pre Entrega del proyecto para CoderHouse',
-    text: '- Optimización del Proyecto- Codificación de Funciones; Ampliar y refinar flujo de trabajo; Modificación del DOM; salida de resultados por HTML; definir eventos; almacenamiento de datos y recuperación. ',
+    title: 'Entrega del proyecto final para CoderHouse',
+    text: '- Optimización del Proyecto- Codificación de Funciones; Modificación del DOM; salida de resultados por HTML; definir eventos; almacenamiento de datos y recuperación. ',
     icon: 'success',
-    confirmButtonText: 'Cerrar'
+    confirmButtonText: 'Cerrar',
+    customClass: {
+
+      popup: 'custom-swal-popup', 
+    },
+    background: ` url('images/negro.jpg')`, 
+    backdrop: `
+      rgba(0,0,0)
+      url('images/warning.jpg')
+      bottom
+      no-repeat
+      
+    `,
   });
 });
+
+// 15/9/2023 //////////////////////////////////////////////
+
