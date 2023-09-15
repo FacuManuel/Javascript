@@ -276,7 +276,7 @@ function cerrarSesionYRecargar() {
 document.getElementById('infoBtn').addEventListener('click', function () {
   Swal.fire({
     title: 'Entrega del proyecto final para CoderHouse',
-    text: '- Optimización del Proyecto- Codificación de Funciones; Modificación del DOM; salida de resultados por HTML; definir eventos; almacenamiento de datos y recuperación. ',
+    text: '- Optimización del Proyecto- Codificación de Funciones; Modificación del DOM; salida de resultados por HTML; definir eventos; almacenamiento de datos y recuperación, librerias, promises, asincronia, arrays, objetos,itineraores, fetch ',
     icon: 'success',
     confirmButtonText: 'Cerrar',
     customClass: {
