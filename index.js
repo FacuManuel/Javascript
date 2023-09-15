@@ -49,7 +49,7 @@ function obtenerFechaHoraActual() {
   return fechaHoraFormateada;
 }
 
-// Carga el arreglo de usuarios registrados
+//arreglo de usuarios registrados
 let usuariosRegistrados = [
   {
     usuario: 'facundo',
@@ -67,9 +67,15 @@ let usuariosRegistrados = [
   }
 ];
 
-const usuariosRegistradosJSON = localStorage.getItem('usuariosRegistrados');
-if (usuariosRegistradosJSON) {
-  usuariosRegistrados = JSON.parse(usuariosRegistradosJSON);
+function cargarUsuariosRegistrados() {
+  return new Promise((resolve, reject) => {
+    const usuariosRegistradosJSON = localStorage.getItem('usuariosRegistrados');
+    if (usuariosRegistradosJSON) {
+      resolve(JSON.parse(usuariosRegistradosJSON));
+    } else {
+      reject(new Error('No se encontraron usuarios registrados en localStorage.'));
+    }
+  });
 }
 
 
@@ -84,10 +90,9 @@ function iniciarSesion(username, contraseña) {
       title: 'Inicio de Sesión Exitoso',
       text: '¡Bienvenido, ' + username + '!',
       customClass: {
-
-        popup: 'custom-swal-popup', 
+        popup: 'custom-swal-popup',
       },
-      background: ` url('images/negro.jpg')`, 
+      background: ` url('images/negro.jpg')`,
       backdrop: `
         rgba(0,0,0)
         url('images/warning.jpg')
@@ -124,16 +129,14 @@ function mostrarLoginOLogoutPopup() {
       confirmButtonText: 'Sí, Cerrar Sesión',
       cancelButtonText: 'Cancelar',
       customClass: {
-
-        popup: 'custom-swal-popup', 
+        popup: 'custom-swal-popup',
       },
-      background: ` url('images/negro.jpg')`, 
+      background: ` url('images/negro.jpg')`,
       backdrop: `
         rgba(0,0,0)
         url('images/warning.jpg')
         bottom
         no-repeat
-        
       `,
     }).then((result) => {
       if (result.isConfirmed) {
@@ -143,10 +146,9 @@ function mostrarLoginOLogoutPopup() {
           title: 'Sesión Cerrada',
           text: 'Tu sesión ha sido cerrada correctamente.',
           customClass: {
-
-            popup: 'custom-swal-popup', 
+            popup: 'custom-swal-popup',
           },
-          background: ` url('images/negro.jpg')`, 
+          background: ` url('images/negro.jpg')`,
           backdrop: `
             rgba(0,0,0)
             url('images/warning.jpg')
@@ -168,10 +170,9 @@ function mostrarLoginOLogoutPopup() {
       confirmButtonText: 'Iniciar Sesión',
       cancelButtonText: 'Registrarse',
       customClass: {
-
-        popup: 'custom-swal-popup', 
+        popup: 'custom-swal-popup',
       },
-      background: ` url('images/negro.jpg')`, 
+      background: ` url('images/negro.jpg')`,
       backdrop: `
         rgba(0,0,0)
         url('images/warning.jpg')
@@ -198,10 +199,9 @@ function mostrarLoginOLogoutPopup() {
           confirmButtonText: 'Registrar',
           cancelButtonText: 'Cancelar',
           customClass: {
-
-            popup: 'custom-swal-popup', 
+            popup: 'custom-swal-popup',
           },
-          background: ` url('images/negro.jpg')`, 
+          background: ` url('images/negro.jpg')`,
           backdrop: `
             rgba(0,0,0)
             url('images/warning.jpg')
@@ -230,10 +230,9 @@ function mostrarLoginOLogoutPopup() {
               title: 'Registro Exitoso',
               text: 'Usuario registrado con éxito. Ahora puedes iniciar sesión.',
               customClass: {
-
-                popup: 'custom-swal-popup', 
+                popup: 'custom-swal-popup',
               },
-              background: ` url('images/negro.jpg')`, 
+              background: ` url('images/negro.jpg')`,
               backdrop: `
                 rgba(0,0,0)
                 url('images/warning.jpg')
@@ -273,7 +272,6 @@ function cerrarSesionYRecargar() {
   location.reload();
 }
 
-
 // Botón de información
 document.getElementById('infoBtn').addEventListener('click', function () {
   Swal.fire({
@@ -282,19 +280,14 @@ document.getElementById('infoBtn').addEventListener('click', function () {
     icon: 'success',
     confirmButtonText: 'Cerrar',
     customClass: {
-
-      popup: 'custom-swal-popup', 
+      popup: 'custom-swal-popup',
     },
-    background: ` url('images/negro.jpg')`, 
+    background: ` url('images/negro.jpg')`,
     backdrop: `
       rgba(0,0,0)
       url('images/warning.jpg')
       bottom
       no-repeat
-      
     `,
   });
 });
-
-// 15/9/2023 //////////////////////////////////////////////
-

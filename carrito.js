@@ -54,12 +54,27 @@ const productos = [
 const carrito = [];
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Buscar productos en el navbar
-  function buscarProductos() {
-    const términoDeBúsqueda = document.getElementById('search-input').value.toLowerCase();
-    const productosFiltrados = productos.filter(producto => {
-      const nombreDelProducto = producto.nombre.toLowerCase();
-      return nombreDelProducto.includes(términoDeBúsqueda);
+// Buscar productos en el navbar
+function buscarProductos() {
+  const términoDeBúsqueda = document.getElementById('search-input').value.toLowerCase();
+  const productosFiltrados = productos.filter(producto => {
+    const nombreDelProducto = producto.nombre.toLowerCase();
+    return nombreDelProducto.includes(términoDeBúsqueda);
+  });
+
+  // Llamar a la función para obtener datos de la API
+  obtenerDatosDeAPI()
+    .then(apiData => {
+      // Aquí puedes manejar los datos de la API
+      console.log(apiData);
+      
+      // Luego, puedes seguir manejando los productos filtrados y mostrarlos en la página
+      const contenedorResultadosDeBúsqueda = document.createElement('div');
+      // Resto del código para mostrar productos filtrados...
+    })
+    .catch(error => {
+      // Manejar errores de la API aquí
+      console.error('Error al obtener datos de la API:', error);
     });
 
     const contenedorResultadosDeBúsqueda = document.createElement('div');
@@ -276,3 +291,34 @@ tarjetasProductos.forEach(tarjeta => {
     eliminarDelCarrito(producto);
   });
 });
+
+
+// Función para obtener datos de una API simulada
+function obtenerDatosDeAPI() {
+  return new Promise((resolve, reject) => {
+    fetch('https://www.clubensayos.com/Acontecimientos-Sociales/Historia-y-antecedentes-de-NIKE/1432335.html')
+      .then(response => {
+        if (!response.ok) {
+          reject(new Error('No se pudo obtener los datos de la API'));
+        }
+        return response.json();
+      })
+      .then(data => {
+        resolve(data);
+      })
+      .catch(error => {
+        reject(error);
+      });
+  });
+}
+
+
+obtenerDatosDeAPI()
+  .then(data => {
+    // Manejar los datos aquí (por ejemplo, mostrarlos en la página)
+    //console.log(data);
+  })
+  .catch(error => {
+    // Manejar errores aquí
+    //console.error(error);
+  });
